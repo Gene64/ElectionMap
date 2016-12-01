@@ -9,19 +9,19 @@ public class Election {
 	public static void main(String[] args) throws FileNotFoundException {
 		String mapType = args[0];
 		String mapColor = args[1];
-
+		
 		File txt = new File(mapType + ".txt");
 		Scanner myScanner = new Scanner(txt);
-
-
+		
 		double[] minValues = new double[2];
 		double[] maxValues = new double[2];
-
+		
+		// get scale
 		for (int i = 0; i < 2; i++) {
 			minValues[i] = myScanner.nextDouble();
 			maxValues[i] = myScanner.nextDouble();
 		}
-
+		
 		// set scale
 		StdDraw.setXscale(minValues[0], maxValues[0]);
 		StdDraw.setYscale(minValues[1], maxValues[1]);
@@ -60,14 +60,15 @@ public class Election {
 			yValues[i] = scanner.nextDouble();
 		}
 
-		if (style.equals("RedBlue")) {
+		if (style.equals("White")) {
+			StdDraw.polygon(xValues, yValues);
+		}
+		else if (style.equals("RedBlue")) {
 			// TODO: Add RedBlue functions
 		}
 		else if (style.equals("Purple")) {
 			// TODO: Add Purple functions
 		}
-
-		StdDraw.filledPolygon(xValues, yValues);
 	}
 
 	public static void drawNC() {
