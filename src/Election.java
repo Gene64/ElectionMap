@@ -1,3 +1,7 @@
+/**
+* Collaboration: (none)
+*/
+
 import java.util.Scanner;
 import java.io.*;
 
@@ -11,8 +15,8 @@ public class Election {
     double[] maxValues = new double[2];
 
     for (int i = 0; i < 2; i++) {
-      maxValues[i] = myScanner.nextDouble();
-      minValues[i] = myScanner.nextDouble();
+    	minValues[i] = myScanner.nextDouble();
+    	maxValues[i] = myScanner.nextDouble();
     }
     
     // set scale
@@ -26,7 +30,6 @@ public class Election {
   }
   
   public static void drawUSA(Scanner scanner) throws FileNotFoundException {
-	  System.out.println("debug1");
 	  String stateName = scanner.next();
 	  
 	  if (stateName.equals("District"))
@@ -37,8 +40,6 @@ public class Election {
 	  int democratVotes = scanner.nextInt();
 	  int independentVotes = scanner.nextInt();
 	  int polygonPoints = scanner.nextInt();
-	    
-	  System.out.println(polygonPoints);
 	    
 	  double[] xValues = new double[polygonPoints];
 	  double[] yValues = new double[polygonPoints];
