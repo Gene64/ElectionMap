@@ -7,10 +7,13 @@ import java.io.*;
 
 public class Election {
   public static void main(String[] args) throws FileNotFoundException {
-    
-	File txt = new File("USA.txt");
-	Scanner myScanner = new Scanner(txt);
-    
+	  String mapType = args[0];
+	  String mapColor = args[1];
+	  
+	  File txt = new File(mapType + ".txt");
+	  Scanner myScanner = new Scanner(txt);
+	  
+	
     double[] minValues = new double[2];
     double[] maxValues = new double[2];
 
@@ -25,11 +28,19 @@ public class Election {
     
     int numberOfSubRegions = myScanner.nextInt();
     
-    while (myScanner.hasNext())
-    	drawUSA(myScanner);
+    if (mapType.equals("USA")) {
+    	while (myScanner.hasNext())
+        	drawUSA(myScanner, mapColor);
+    }
+    else if (mapType.equals("NC")) {
+    	drawNC();
+    }
+    else if (mapType.equals("CA")) {
+    	drawCA();
+    }
   }
   
-  public static void drawUSA(Scanner scanner) throws FileNotFoundException {
+  public static void drawUSA(Scanner scanner, String style) throws FileNotFoundException {
 	  String stateName = scanner.next();
 	  
 	  if (stateName.equals("District"))
@@ -48,7 +59,22 @@ public class Election {
 		  xValues[i] = scanner.nextDouble();
 		  yValues[i] = scanner.nextDouble();
 	    }
+	  
+	  if (style.equals("RedBlue")) {
+		  // TODO: Add RedBlue functions
+	  }
+	  else if (style.equals("Purple")) {
+		  // TODO: Add Purple functions
+	  }
 	    
 	  StdDraw.filledPolygon(xValues, yValues);
+  }
+  
+  public static void drawNC() {
+	  // TODO: Implement this
+  }
+  
+  public static void drawCA() {
+	  // TODO: Implement this
   }
 }
