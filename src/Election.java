@@ -43,7 +43,7 @@ public class Election {
 		}
 	}
 
-	public static void drawUSA(Scanner scanner, String style) throws FileNotFoundException {
+	private static void drawUSA(Scanner scanner, String style) throws FileNotFoundException {
 		String stateName = scanner.next();
 
 		if (stateName.equals("District"))
@@ -65,20 +65,36 @@ public class Election {
 
 		if (style.equals("White")) {
 			StdDraw.polygon(xValues, yValues);
+			return;
 		}
 		else if (style.equals("RedBlue")) {
-			// TODO: Add RedBlue functions
+			if (republicanVotes > democratVotes)
+				StdDraw.setPenColor(StdDraw.RED);
+			else if (democratVotes > republicanVotes)
+				StdDraw.setPenColor(StdDraw.BLUE);
 		}
 		else if (style.equals("Purple")) {
+			StdDraw.setPenColor(getRGBColor("R", republicanVotes, democratVotes, independentVotes), getRGBColor("G", republicanVotes, democratVotes, independentVotes), getRGBColor("B", republicanVotes, democratVotes, independentVotes));
 			// TODO: Add Purple functions
 		}
+		StdDraw.filledPolygon(xValues, yValues);
+	}
+	
+	private static int getRGBColor(String color, int republicanVotes, int democratVotes, int independentVotes) {
+		if (color.equals("R"))
+			return (republicanVotes) / (republicanVotes + democratVotes + independentVotes);
+		else if (color.equals("G"))
+			return (democratVotes) / (republicanVotes + democratVotes + independentVotes);
+		else if (color.equals("B"))
+			return (independentVotes) / (republicanVotes + democratVotes + independentVotes);
+		return 0;
 	}
 
-	public static void drawNC() {
+	private static void drawNC() {
 		// TODO: Implement this
 	}
 
-	public static void drawCA() {
+	private static void drawCA() {
 		// TODO: Implement this
 	}
 }
