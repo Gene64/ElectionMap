@@ -13,6 +13,9 @@ public class Election {
 		File txt = new File(mapType + ".txt");
 		Scanner myScanner = new Scanner(txt);
 		
+		// set window size
+		StdDraw.setCanvasSize(640, 512);
+		
 		double[] minValues = new double[2];
 		double[] maxValues = new double[2];
 		
@@ -23,8 +26,8 @@ public class Election {
 		}
 		
 		// set scale
-		StdDraw.setXscale(minValues[0], maxValues[0]);
-		StdDraw.setYscale(minValues[1], maxValues[1]);
+		StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
+		StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
 
 		int numberOfSubRegions = myScanner.nextInt();
 
