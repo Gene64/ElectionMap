@@ -75,7 +75,6 @@ public class Election {
 		}
 		else if (style.equals("Purple")) {
 			StdDraw.setPenColor(getRGBColor("R", republicanVotes, democratVotes, independentVotes), getRGBColor("G", republicanVotes, democratVotes, independentVotes), getRGBColor("B", republicanVotes, democratVotes, independentVotes));
-			// TODO: Add Purple functions
 		}
 		StdDraw.filledPolygon(xValues, yValues);
 	}
