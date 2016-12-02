@@ -31,13 +31,12 @@ public class Election {
 			StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
 		}
 		else if (mapArea.equals("NC")) {
-			StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
-			StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
+			StdDraw.setXscale(minValues[0] - 0.25, maxValues[0] - 109);
+			StdDraw.setYscale(minValues[1] + 109, maxValues[1] + 2);
 		}
 		else if (mapArea.equals("CA")) {
-			// TODO: edit these values
-			StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
-			StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
+			StdDraw.setXscale(minValues[0] - 3, maxValues[0] - 146);
+			StdDraw.setYscale(minValues[1] + 146, maxValues[1] + 1);
 		}
 
 		int numberOfSubRegions = myScanner.nextInt();
