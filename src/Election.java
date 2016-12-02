@@ -7,10 +7,10 @@ import java.io.*;
 
 public class Election {
 	public static void main(String[] args) throws FileNotFoundException {
-		String mapType = args[0];
-		String mapColor = args[1];
+		String mapArea = args[0];
+		String mapType = args[1];
 		
-		File txt = new File(mapType + ".txt");
+		File txt = new File(mapArea + ".txt");
 		Scanner myScanner = new Scanner(txt);
 		
 		// set window size
@@ -26,24 +26,27 @@ public class Election {
 		}
 		
 		// set scale
-		StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
-		StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
+		if (mapArea.equals("USA")) {
+			StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
+			StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
+		}
+		else if (mapArea.equals("NC")) {
+			StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
+			StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
+		}
+		else if (mapArea.equals("CA")) {
+			// TODO: edit these values
+			StdDraw.setXscale(minValues[0] - 5, maxValues[0] - 90);
+			StdDraw.setYscale(minValues[1] + 90, maxValues[1] + 8);
+		}
 
 		int numberOfSubRegions = myScanner.nextInt();
 
-		if (mapType.equals("USA")) {
-			while (myScanner.hasNext())
-				drawUSA(myScanner, mapColor);
-		}
-		else if (mapType.equals("NC")) {
-			drawNC();
-		}
-		else if (mapType.equals("CA")) {
-			drawCA();
-		}
+		while (myScanner.hasNext())
+			drawMap(myScanner, mapType);
 	}
 
-	private static void drawUSA(Scanner scanner, String style) throws FileNotFoundException {
+	private static void drawMap(Scanner scanner, String style) throws FileNotFoundException {
 		String stateName = scanner.next();
 
 		if (stateName.equals("District"))
@@ -87,13 +90,5 @@ public class Election {
 		else if (color.equals("B"))
 			return democratVotes * 100 / (republicanVotes + democratVotes + independentVotes);
 		return 0;
-	}
-
-	private static void drawNC() {
-		// TODO: Implement this
-	}
-
-	private static void drawCA() {
-		// TODO: Implement this
 	}
 }
