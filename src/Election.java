@@ -83,11 +83,11 @@ public class Election {
 	
 	private static int getRGBColor(String color, int republicanVotes, int democratVotes, int independentVotes) {
 		if (color.equals("R"))
-			return republicanVotes * 100 / (republicanVotes + democratVotes + independentVotes);
+			return republicanVotes * 255 / (republicanVotes + democratVotes + independentVotes);
 		else if (color.equals("G"))
-			return independentVotes * 100 / (republicanVotes + democratVotes + independentVotes);
+			return independentVotes * 255 / (republicanVotes + democratVotes + independentVotes);
 		else if (color.equals("B"))
-			return democratVotes * 100 / (republicanVotes + democratVotes + independentVotes);
+			return democratVotes * 255 / (republicanVotes + democratVotes + independentVotes);
 		return 0;
 	}
 }
